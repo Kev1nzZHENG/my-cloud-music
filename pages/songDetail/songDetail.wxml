@@ -1,0 +1,37 @@
+<view class="songDetailContainer">
+    <text class="iconfont icon-xiangzuo" bindtap="goBack"></text>
+    <image src="{{MusicDetail.al.picUrl}}" class="musicBackground"></image>
+    <view class="musicName">{{MusicDetail.name}}</view>
+    <view class="singer">{{MusicDetail.ar[0].name}}</view>
+    <view class="circle"></view>
+    <image src="/static/images/song/needle.png" class="needle {{isPlay &&'needleRotate'}}"></image>
+    <view class="discContainer {{isPlay &&'discAnimation'}}">
+        <image src="/static/images/song/disc.png" class="disc"></image>
+        <image src="{{MusicDetail.al.picUrl}}" class="musicImg"></image>
+    </view>
+    <!-- 进度条控制区域 -->
+    <view class="progress">
+        <text>{{currentTime}}</text>
+        <!-- 进度条 -->
+        <view class="bar">
+            <!-- 实时进度条 -->
+            <view class="currentBar" style="width:{{currentWidth+ 'rpx'}}">
+                <view class="audio-circle"></view>
+            </view>
+        </view>
+        <text>{{durationTime}}</text>
+    </view>
+    <!-- 底部控制播放区域 -->
+    <view class="musicControl">
+        <!-- 音乐播放顺序 -->
+        <view class="playOrder" bindtap="changePlayOrder">
+            <text class="iconfont icon-liebiaoxunhuan" wx:if="{{playType =='order'}}" id="order"></text>
+            <text class="iconfont icon-danquxunhuan" wx:elif="{{playType =='cycle'}}" id="cycle"></text>
+            <text class="iconfont icon-xunhuan" wx:else id="random"></text>
+        </view>
+        <text class="iconfont icon-shangyishoushangyige" bindtap="handleSwtich" data-type="pre"></text>
+        <text class="iconfont {{isPlay?'icon-zanting':'icon-bofang'}} big" bindtap="controlPlay"></text>
+        <text class="iconfont icon-xiayigexiayishou" bindtap="handleSwtich" data-type="next"></text>
+        <text class="iconfont icon-playlistplay"></text>
+    </view>
+</view>

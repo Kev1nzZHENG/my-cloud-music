@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}
+
+.title {
+  padding: 10rpx 0;
+  font-size: 34rpx;
+}
+
+.more {
+  font-size: 26rpx;
+  padding: 10rpx 20rpx;
+  border: 1px solid #eee;
+  border-radius: 30rpx;
+}

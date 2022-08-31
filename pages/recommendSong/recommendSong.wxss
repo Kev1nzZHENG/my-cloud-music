@@ -1,0 +1,90 @@
+/* 头部区域 */
+.header {
+  position: relative;
+  width: 100%;
+  height: 300rpx;
+}
+
+.header image {
+  width: 100%;
+  height: 100%;
+}
+
+.date {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+}
+
+.date .day {
+  font-size: 60rpx;
+}
+
+/* 列表区域 */
+.ListContainer {
+  position: relative;
+  top: -20rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 80;
+  line-height: 80rpx;
+}
+
+.icon-bofang {
+  color: red;
+  margin-right: 10rpx;
+}
+
+/* 歌单展示区域 */
+.songItem {
+  position: relative;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.songItem image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.musicInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.musicInfo text {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  max-width: 500rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.songItem .iconfont {
+  position: absolute;
+  right: 0;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: right;
+}
+
+.listScroll {
+  height: calc(100vh - 380rpx);
+}

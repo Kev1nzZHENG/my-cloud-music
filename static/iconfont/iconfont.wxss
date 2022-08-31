@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 3609031 */
+  src: url('//at.alicdn.com/t/c/font_3609031_12s9v29nixi.woff2?t=1661952456656') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3609031_12s9v29nixi.woff?t=1661952456656') format('woff'),
+    url('//at.alicdn.com/t/c/font_3609031_12s9v29nixi.ttf?t=1661952456656') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-danquxunhuan:before {
+  content: "\e802";
+}
+
+.icon-liebiaoxunhuan:before {
+  content: "\e803";
+}
+
+.icon-xiangzuo:before {
+  content: "\eb15";
+}
+
+.icon-zanting:before {
+  content: "\e62a";
+}
+
+.icon-playlistplay:before {
+  content: "\e9ff";
+}
+
+.icon-24gf-playlist:before {
+  content: "\ea82";
+}
+
+.icon-gengduo-shuxiang:before {
+  content: "\e8c4";
+}
+
+.icon-zhuanfa:before {
+  content: "\e628";
+}
+
+.icon-02:before {
+  content: "\e602";
+}
+
+.icon-pinglun:before {
+  content: "\e891";
+}
+
+.icon-aixin:before {
+  content: "\e8ab";
+}
+
+.icon-gengduo:before {
+  content: "\e601";
+}
+
+.icon-31haoyou:before {
+  content: "\e600";
+}
+
+.icon-gexingzhuangban:before {
+  content: "\e655";
+}
+
+.icon-xiaoxi:before {
+  content: "\e711";
+}
+
+.icon-gerenzhuye:before {
+  content: "\e63b";
+}
+
+.icon-home-page:before {
+  content: "\e63e";
+}
+
+.icon-home-page-current-copy:before {
+  content: "\eafd";
+}
+
+.icon-gerenzhongxin:before {
+  content: "\e627";
+}
+
+.icon-gerenzhongxin-current-copy:before {
+  content: "\eafc";
+}
+
+.icon-shipin1:before {
+  content: "\eafb";
+}
+
+.icon-shipin-current-copy:before {
+  content: "\e8c8";
+}
+
+.icon-shipin:before {
+  content: "\e61e";
+}
+
+.icon-bofang-current-copy-copy:before {
+  content: "\e8c7";
+}
+
+.icon-paixingbang:before {
+  content: "\e7bd";
+}
+
+.icon-shangyishoushangyige:before {
+  content: "\e78a";
+}
+
+.icon-xiayigexiayishou:before {
+  content: "\e7a5";
+}
+
+.icon-bofang:before {
+  content: "\e624";
+}
+
+.icon-search:before {
+  content: "\e741";
+}
+
+.icon-15:before {
+  content: "\e626";
+}
+
+.icon-huiyuan:before {
+  content: "\e8c5";
+}
+
+.icon-gedan:before {
+  content: "\e636";
+}
+
+.icon-xunhuan:before {
+  content: "\e610";
+}
+
+.icon-tuijian:before {
+  content: "\e629";
+}
+
+.icon-diantai:before {
+  content: "\e693";
+}
+
+.icon-bofang-current-copy:before {
+  content: "\e8c6";
+}
