@@ -59,24 +59,36 @@ Page({
       month: new Date().getMonth() + 1
     })
     // 订阅来自songDetail页面发布的消息
-    PubSub.subscribe('switchType', (event, type) => {
+    PubSub.subscribe('switchType', (event, obj) => {
       let { recommendList, index } = this.data;
-      //上一首
-      if (type == 'pre') {
-        if (index == 0) {
-          index = recommendList.length - 1;
-        } else {
-          index -= 1;
-        }
+      // 顺序播放
+      if (obj.playType == 'order' || obj.playType == 'cycle') {
+        //上一首
+        if (obj.type == 'pre') {
+          if (index == 0) {
+            index = recommendList.length - 1;
+          } else {
+            index -= 1;
+          }
 
-      } else if (type == 'next') {
-        //下一首
-        if (index == recommendList.length - 1) {
-          index = 0;
-        } else {
-          index += 1;
+        } else if (obj.type == 'next') {
+          //下一首
+          if (index == recommendList.length - 1) {
+            index = 0;
+          } else {
+            index += 1;
+          }
         }
       }
+      // 随机播放
+      if (obj.playType == 'random') {
+        index = this.getRandomNum(0, recommendList.length - 1);
+        while (index == this.data.index) {
+          index = this.getRandomNum(0, recommendList.length - 1);
+        }
+        console.log(index);
+      }
+
       this.setData({
         index
       })
@@ -84,7 +96,10 @@ Page({
       PubSub.publish('musicId', musicId)
     })
   },
-
+  // 获取随机数
+  getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

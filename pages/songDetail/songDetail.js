@@ -16,7 +16,8 @@ Page({
         currentTime: '00:00', //当前播放时长
         durationTime: "00:00", //总时长
         currentWidth: 0, //当前播放条长度
-        playType: 'order' //播放顺序
+        playType: 'order', //播放顺序
+        musicUrl: '' //音乐链接
     },
     // 更换播放类型
     changePlayOrder(event) {
@@ -67,6 +68,9 @@ Page({
         // 给实例添加播放相关属性
         this.music.src = musicUrlInfo.data[0].url;
         this.music.title = this.data.MusicDetail.name;
+        this.setData({
+            musicUrl: musicUrlInfo.data[0].url
+        })
     },
 
     //获取音乐相关信息
@@ -78,6 +82,7 @@ Page({
             durationTime
         })
     },
+
 
     //修改播放状态的功能函数
     changePlayState(isPlay) {
@@ -131,18 +136,17 @@ Page({
         });
         // 播放结束回调
         this.music.onEnded(() => {
-            // 订阅音乐id
-            PubSub.subscribe('musicId', (event, musicId) => {
-                this.setData({
-                    musicId
-                })
-                // 更新音乐信息=>页面详情
-                this.getMusicDetail(musicId);
-                // 更新音乐的url
-                this.getMusicPlayUrl();
-            })
-            // 播放下一首
-            PubSub.publish('switchType', 'next');
+            let { playType } = this.data;
+            //循环播放
+            if (playType == 'cycle') {
+                this.music.src = this.data.musicUrl;
+                this.music.title = this.data.MusicDetail.name;
+            } else {
+                // 订阅音乐id
+                this.SubcribeMusicId();
+                // 播放下一首
+                PubSub.publish('switchType', { playType: playType, type: 'next' });
+            }
             // 进度条，当前播放时间归零
             this.setData({
                 currentTime: '00:00',
@@ -152,8 +156,8 @@ Page({
         // 音乐播放实时进度回调
         this.music.onTimeUpdate(() => {
             // 实例的实时播放时长单位为s    moment的单位为毫秒
-            /*             console.log('总时长', this.music.duration);
-                        console.log('实时时长', this.music.currentTime); */
+            //console.log('总时长', this.music.duration);
+            //console.log('实时时长', this.music.currentTime);
             let currentTime = moment(this.music.currentTime * 1000).format('mm:ss');
             let currentWidth = this.music.currentTime * 450 / this.music.duration;
             this.setData({
@@ -163,9 +167,23 @@ Page({
         })
     },
 
+    SubcribeMusicId() {
+        // 订阅音乐id
+        PubSub.subscribe('musicId', (event, musicId) => {
+            this.setData({
+                musicId
+            })
+            // 更新音乐信息=>页面详情
+            this.getMusicDetail(musicId);
+            // 更新音乐的url
+            this.getMusicPlayUrl();
+        })
+    },
+
     // 处理歌曲切换
     handleSwtich(event) {
         let type = event.currentTarget.dataset.type;
+        let { playType } = this.data;
         // 关闭当前播放的音乐
         this.music.stop();
         // 订阅音乐id
@@ -181,7 +199,7 @@ Page({
             PubSub.unsubscribe('musicId')
         })
         // 发布消息给recommendSong页面
-        PubSub.publish('switchType', type)
+        PubSub.publish('switchType', { playType: playType, type: type })
     },
 
     /**
