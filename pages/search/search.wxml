@@ -1,0 +1,48 @@
+<view class="searchContainer">
+    <!-- 头部搜索区域 -->
+    <view class="header">
+        <text class="iconfont icon-xiangzuo" bindtap="goback"></text>
+        <view class="searchInput">
+            <text class="iconfont icon-search searchIcon"></text>
+            <input value="{{inputValue}}" placeholder="{{placeholderContent}}" bindinput="handleInput" />
+            <text hidden="{{!inputValue}}" class="iconfont icon-qingkong" bindtap="clearInputValue"></text>
+        </view>
+        <text class="search" bindtap="toSearch">搜索</text>
+    </view>
+    <block wx:if="{{searchList.length}}">
+        <!-- 搜索内容展示 -->
+        <view class="searchContainer">
+            <view class="searchContent">搜索内容:{{inputValue}}</view>
+            <view class="searList">
+                <view class="searchItem" wx:for="{{searchList}}" wx:key="id">
+                    <text class="iconfont icon-search"></text>
+                    <text class="content">{{item.name}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <!-- 搜索历史记录 -->
+        <view class="history" wx:if="{{historyList.length}}">
+            <view class="historyHead">
+                <view class="title">历史</view>
+                <text class="iconfont icon-shanchu" bindtap="clearHistory"></text>
+            </view>
+            <view class="historyList">
+                <view class="historyItem" wx:for="{{historyList}}" wx:key="item">{{item}}</view>
+            </view>
+        </view>
+        <!-- 热搜榜 -->
+        <view class="hot">
+            <view class="title">热搜榜</view>
+            <!-- 热搜列表 -->
+            <view class="hotList">
+                <view class="hotItem" wx:for="{{hotList}}" wx:key="searchWord">
+                    <text class="order">{{index + 1}}</text>
+                    <text class="songName">{{item.searchWord}}</text>
+                    <image src="{{item.iconUrl}}" wx:if="{{item.iconUrl}}" class="hotIcon"></image>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

@@ -1,4 +1,10 @@
 <view class="Container">
+  <!-- 头部区域 -->
+  <view class="header" bindtap="goSearch">
+    <image src="/static/images/video/video.jpg"></image>
+    <input class="search" placeholder="{{placeholderContent}}" />
+    <image src="/static/images/logo.png"></image>
+  </view>
   <!-- 轮播图区域 -->
   <swiper class="banner" indicator-dots indicator-color="ivory" indicator-active-color="#d43d33" autoplay interval="6000" circular>
     <swiper-item wx:for="{{bannerList}}" wx:key="bannerId">

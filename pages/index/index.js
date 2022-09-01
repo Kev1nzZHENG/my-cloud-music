@@ -1,4 +1,4 @@
-// pages/index/index.js
+import PubSub from 'pubsub-js';
 import request from '../../utils/request'
 Page({
 
@@ -9,7 +9,9 @@ Page({
     bannerList: [],  //轮播图数据
     recommendList: [], //推荐歌单数据
     rankList: [],  //排行榜数据
+    placeholderContent: '', //搜索placeholder内容
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -21,7 +23,11 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: async function () {
+  onReady() {
+    this.getInitData();
+  },
+  // 获得初始化数据
+  async getInitData() {
     // 获取轮播图数据
     let bannerListData = await request('/banner', { type: 2 });
     this.setData({
@@ -44,13 +50,18 @@ Page({
         rankList: rankListArr
       })
     })
-    // setTimeout(() => {
-    //   this.setData({
-    //     rankList: rankListArr
-    //   })
-    // }, 1000);
+    // 获取placeholder内容
+    let PlaceholderData = await request('/search/default');
+    this.setData({
+      placeholderContent: PlaceholderData.data.showKeyword,
+    })
   },
-
+  //跳往search页面
+  goSearch() {
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
+  },
   // 跳往每日推荐
   goRecommendSong() {
     wx.navigateTo({

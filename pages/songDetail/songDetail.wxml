@@ -5,6 +5,8 @@
     <view class="singer">{{MusicDetail.ar[0].name}}</view>
     <view class="circle"></view>
     <image src="/static/images/song/needle.png" class="needle {{isPlay &&'needleRotate'}}"></image>
+
+    
     <view class="discContainer {{isPlay &&'discAnimation'}}">
         <image src="/static/images/song/disc.png" class="disc"></image>
         <image src="{{MusicDetail.al.picUrl}}" class="musicImg"></image>

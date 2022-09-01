@@ -1,3 +1,25 @@
+.header {
+  display: flex;
+  padding: 10rpx;
+}
+
+.header image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.header .search {
+  flex: 1;
+  border: 1px solid #eee;
+  margin: 0 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #d43d33;
+  border-radius: 30rpx;
+  background-color: rgba(237, 237, 237, 1);
+}
+
 /* 轮播图 */
 .banner {
   width: 100%;
