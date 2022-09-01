@@ -261,12 +261,13 @@ Page({
     },
     //控制歌词播放
     getCurrentLyric() {
-        for (let j = 0; j < this.data.lyric.length - 1; j++) {
-            if (this.data.lyricTime == this.data.lyric[j].time) {
-                this.setData({
-                    currentLyric: this.data.lyric[j].text
-                })
-            }
+        let lyricItem = this.data.lyric.find(item => {
+            return item.time == this.data.lyricTime;
+        })
+        if (lyricItem != undefined) {
+            this.setData({
+                currentLyric: lyricItem.text
+            })
         }
     },
     /**
