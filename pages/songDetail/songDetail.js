@@ -14,6 +14,7 @@ Page({
         MusicDetail: {}, //歌曲详情对象
         musicId: 0, //音乐ID
         currentTime: '00:00', //当前播放时长
+        duration: 0,//总时长未转换
         durationTime: "00:00", //总时长
         currentWidth: 0, //当前播放条长度
         playType: 'order', //播放顺序
@@ -79,7 +80,8 @@ Page({
         let durationTime = moment(songData.songs[0].dt).format('mm:ss')
         this.setData({
             MusicDetail: songData.songs[0],
-            durationTime
+            durationTime,
+            duration: songData.songs[0].dt
         })
     },
 
@@ -159,7 +161,7 @@ Page({
             //console.log('总时长', this.music.duration);
             //console.log('实时时长', this.music.currentTime);
             let currentTime = moment(this.music.currentTime * 1000).format('mm:ss');
-            let currentWidth = this.music.currentTime * 450 / this.music.duration;
+            let currentWidth = this.music.currentTime / this.music.duration * 100;
             this.setData({
                 currentTime,
                 currentWidth
@@ -200,6 +202,14 @@ Page({
         })
         // 发布消息给recommendSong页面
         PubSub.publish('switchType', { playType: playType, type: type })
+    },
+
+    // 进度条拖拽
+    handleSlider(event) {
+        let { duration } = this.data;
+        let playCurrent = event.detail.value * duration / 100 / 1000;
+        playCurrent = playCurrent.toFixed(2) * 1; //保留两位小数，转换number类型
+        this.music.seek(playCurrent)
     },
 
     /**

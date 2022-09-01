@@ -127,26 +127,29 @@
     line-height: 80rpx;
 }
 
-.bar {
+.slider {
+    width: 450rpx;
+    height: 4rpx;
+}
+
+/* .bar {
     position: relative;
     width: 450rpx;
     height: 4rpx;
     margin: auto;
     background-color: rgba(0, 0, 0, .4);
-}
+} */
 
-.currentBar {
+/* .currentBar {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-    /* width: 100rpx; */
-    /* width: 50%; */
     height: 4rpx;
     background-color: red;
-}
+} */
 
-.audio-circle {
+/* .audio-circle {
     position: absolute;
     right: -12rpx;
     top: -4rpx;
@@ -154,7 +157,7 @@
     height: 12rpx;
     border-radius: 50%;
     background-color: #fff;
-}
+} */
 
 /* 底部控制区域 */
 .musicControl {

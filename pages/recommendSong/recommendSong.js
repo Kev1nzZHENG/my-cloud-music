@@ -86,7 +86,6 @@ Page({
         while (index == this.data.index) {
           index = this.getRandomNum(0, recommendList.length - 1);
         }
-        console.log(index);
       }
 
       this.setData({

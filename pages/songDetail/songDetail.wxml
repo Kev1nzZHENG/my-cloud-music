@@ -13,12 +13,13 @@
     <view class="progress">
         <text>{{currentTime}}</text>
         <!-- 进度条 -->
-        <view class="bar">
-            <!-- 实时进度条 -->
-            <view class="currentBar" style="width:{{currentWidth+ 'rpx'}}">
-                <view class="audio-circle"></view>
-            </view>
-        </view>
+        <!-- <view class="bar"> -->
+        <!-- 实时进度条 -->
+        <!-- <view class="currentBar" style="width:{{currentWidth+ 'rpx'}}"> -->
+        <!-- <view class="audio-circle"></view> -->
+        <!-- </view> -->
+        <slider class="slider" value="{{currentWidth}}" activeColor="red" block-size="12" backgroundColor="#2c3135" bindchange="handleSlider"></slider>
+        <!-- </view> -->
         <text>{{durationTime}}</text>
     </view>
     <!-- 底部控制播放区域 -->
