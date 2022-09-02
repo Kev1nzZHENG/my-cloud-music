@@ -100,6 +100,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+        // 创建背景音频播放实例
+        this.music = wx.getBackgroundAudioManager();
         // options接受路由的query参数
         let musicId = options.musicId;
         this.setData({
@@ -108,7 +110,9 @@ Page({
         // 获取音乐详情
         this.getMusicDetail(musicId);
         // 获取歌词
-        this.getLyric(musicId)
+        this.getLyric(musicId);
+        //获得播放url,开始播放
+        this.getMusicPlayUrl();
 
         // 问题：如果用户操作系统的控制音乐播放/暂停的按钮，页面不知道，导致页面显示是否播放的状态和真实音乐播放状态不一致
         /* 解决方案；
@@ -121,7 +125,6 @@ Page({
                 isPlay: true
             })
         }
-        this.music = wx.getBackgroundAudioManager();
         // 播放回调
         this.music.onPlay(() => {
             // 修改播放状态
@@ -277,9 +280,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        let { isPlay } = this.data;
-        this.getMusicPlayUrl();
-        this.musicControl(isPlay);
+/*         let { isPlay } = this.data;
+        this.musicControl(isPlay); */
     },
 
     /**
