@@ -157,7 +157,10 @@ Page({
             // 进度条，当前播放时间归零
             this.setData({
                 currentTime: '00:00',
-                currentWidth: 0
+                currentWidth: 0,
+                lyric: [],//歌词
+                lyricTime: 0,//歌词对应的时间
+                currentLyric: "",//当前歌词对象
             })
         });
         // 音乐播放实时进度回调
@@ -165,14 +168,13 @@ Page({
             // 实例的实时播放时长单位为s    moment的单位为毫秒
             //console.log('总时长', this.music.duration);
             //console.log('实时时长', this.music.currentTime);
+            let lyricTime = Math.ceil(this.music.currentTime);
             let currentTime = moment(this.music.currentTime * 1000).format('mm:ss');
             let currentWidth = this.music.currentTime / this.music.duration * 100;
+            // 更新数据
             this.setData({
                 currentTime,
-                currentWidth
-            })
-            let lyricTime = Math.ceil(this.music.currentTime);
-            this.setData({
+                currentWidth,
                 lyricTime
             })
             //获取当前歌词
@@ -188,6 +190,8 @@ Page({
             })
             // 更新音乐信息=>页面详情
             this.getMusicDetail(musicId);
+            //更新歌词
+            this.getLyric(musicId);
             // 更新音乐的url
             this.getMusicPlayUrl();
         })
