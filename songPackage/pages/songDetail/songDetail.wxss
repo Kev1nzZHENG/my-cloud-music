@@ -163,10 +163,9 @@
 /* 歌词显示 */
 .scrollLrc {
   position: absolute;
-  bottom: 240rpx;
+  bottom: 210rpx;
   width: 640rpx;
   height: 120rpx;
-  line-height: 120rpx;
   text-align: center;
 }
 

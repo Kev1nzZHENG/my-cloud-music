@@ -59,13 +59,13 @@ Page({
   //跳往search页面
   goSearch() {
     wx.navigateTo({
-      url: '/pages/search/search',
+      url: '/searchPackage/pages/search/search',
     })
   },
   // 跳往每日推荐
   goRecommendSong() {
     wx.navigateTo({
-      url: '/pages/recommendSong/recommendSong',
+      url: '/songPackage/pages/recommendSong/recommendSong',
     })
   },
 

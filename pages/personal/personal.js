@@ -45,7 +45,7 @@ Page({
   // 跳转登陆页面
   toLogin() {
     wx.navigateTo({
-      url: '/pages/login/login',
+      url: '/loginPackage/pages/login/login',
     })
   },
   // 获取最近播放记录
