@@ -1,4 +1,3 @@
-import PubSub from 'pubsub-js';
 import request from '../../utils/request'
 Page({
 
@@ -44,7 +43,7 @@ Page({
     let list = result.list.slice(0, 5);
     list.forEach(async (item) => {
       let playlistResult = await request('/playlist/detail', { id: item.id });
-      let rankListItem = { name: item.name, tracks: playlistResult.playlist.tracks }
+      let rankListItem = { name: item.name, tracks: playlistResult.playlist.tracks.slice(0, 3) }
       rankListArr.push(rankListItem);
       this.setData({
         rankList: rankListArr

@@ -1,4 +1,3 @@
-/* pages/personal/personal.wxss */
 .personalContainer {
     width: 100%;
     height: 100%;

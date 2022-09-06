@@ -58,5 +58,15 @@
         "pages/login/login"
       ]
     }
-  ]
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "songPackage",
+        "searchPackage",
+        "loginPackage"
+      ]
+    }
+  }
 }

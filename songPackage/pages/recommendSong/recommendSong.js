@@ -46,7 +46,7 @@ Page({
         icon: 'error',
         success: () => {
           wx.reLaunch({
-            url: '/pages/login/login'
+            url: '/loginPackage/pages/login/login'
           })
         }
       })

@@ -1,7 +1,7 @@
 <view class="searchContainer">
     <!-- 头部搜索区域 -->
     <view class="header">
-        <text class="iconfont icon-xiangzuo" bindtap="goback"></text>
+        <text class="iconfont icon-xiangzuo" bindtap="goBack"></text>
         <view class="searchInput">
             <text class="iconfont icon-search searchIcon"></text>
             <input value="{{inputValue}}" placeholder="{{placeholderContent}}" bindinput="handleInput" />

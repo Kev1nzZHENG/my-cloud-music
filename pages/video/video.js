@@ -52,7 +52,6 @@ Page({
     }, 200);
   },
 
-  //
   // 点击切换导航，改变选中的索引
   changeNav(event) {
     let navId = event.currentTarget.dataset.id;
